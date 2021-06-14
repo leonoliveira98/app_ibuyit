@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829454640479",
+    "project_id": "ibuyit-b5a16",
+    "storage_bucket": "ibuyit-b5a16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829454640479:android:3249d12e82483de85602ea",
+        "android_client_info": {
+          "package_name": "com.example.app_ibuyit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829454640479-lth6ev20mod0si5fu5uf4g8pr5mjenp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsZD_70uT_t49X6QJFuREI-AQRPfm-EQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829454640479-lth6ev20mod0si5fu5uf4g8pr5mjenp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

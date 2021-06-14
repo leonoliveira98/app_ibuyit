@@ -17,5 +17,22 @@
         android:layout_marginTop="50dp"
         android:textColor="#FFF"
         />
-
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textoPerfil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50sp"
+        android:text="LOGOUT"
+        android:textSize="30sp"
+        />
+    <TextView
+        android:id="@+id/show_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textoPerfil"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        />
 </RelativeLayout>
