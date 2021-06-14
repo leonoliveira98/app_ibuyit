@@ -2,18 +2,21 @@ package com.example.app_ibuyit.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import com.example.app_ibuyit.LoginActivity
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.app_ibuyit.R
+import com.example.app_ibuyit.imagesAdapter
+import com.example.app_ibuyit.produto
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 
 class HomeFragment : Fragment() {
@@ -21,7 +24,6 @@ class HomeFragment : Fragment() {
     private val mAuth : FirebaseAuth = FirebaseAuth.getInstance()
     private val dbFirestore : FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    lateinit var qql : TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -30,13 +32,13 @@ class HomeFragment : Fragment() {
         val user = mAuth.currentUser
         var email = user?.email.toString()
 
+
+
+
         return view
     }
 
 
-    private fun executarOutraActivity(outraActivity: Class<*>, chave: String, argsParaOutraActivity: ArrayList<String>) {
-        val x = Intent(activity, outraActivity)
-        x.putStringArrayListExtra(chave, argsParaOutraActivity)
-        startActivity(x)
-    }
+
+
 }
