@@ -59,7 +59,7 @@ class StoreFragment : Fragment() {
     private fun buscarProdutos(myCallback: (ArrayList<produto>) -> Unit) {
         val arrayProducts = ArrayList<produto>()
 
-        dbFirestore.collection("produtos")
+        dbFirestore.collection("produtos" )
             .get()
             .addOnCompleteListener {
                 if(it.isSuccessful) {
