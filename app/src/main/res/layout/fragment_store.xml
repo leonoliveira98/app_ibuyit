@@ -6,6 +6,37 @@ android:layout_height="match_parent"
 tools:context=".fragments.StoreFragment"
 android:background="#FFF">
 
+    <ImageButton
+        android:id="@+id/shopCart"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        android:src="@drawable/ic_shop_cart"
+        android:scaleType="fitCenter"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
+        android:layout_toLeftOf="@id/btn_logout"
+        android:tint="@android:color/black"
+
+        />
+
+    <ImageButton
+        android:id="@+id/btn_logout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_exit"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
+        android:layout_marginRight="20dp"
+        android:tint="@android:color/black"
+
+        />
+
+
 
 <TextView
     android:id="@+id/textoStore"
@@ -14,7 +45,7 @@ android:background="#FFF">
     android:text="Loja Online"
     android:textSize="30sp"
     android:layout_centerHorizontal="true"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="70dp"
     android:textColor="#000"
     />
 
