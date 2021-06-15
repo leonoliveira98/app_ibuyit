@@ -4,18 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.StoreFragment"
-    android:background="#C0C0C0">
+    android:background="#fff">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textoStore"
+        android:id="@+id/textoPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:text="Promoções"
         android:textSize="30sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:textColor="#000"
         />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPromo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textoPromo"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginBottom="20dp"
+        tools:listitem="@layout/recycler_promo" />
 
 </RelativeLayout>

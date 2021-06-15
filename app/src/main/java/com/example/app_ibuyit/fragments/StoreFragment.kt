@@ -36,9 +36,9 @@ class StoreFragment : Fragment() {
 
         buscarProdutos {
 
-            view.recyclerId.adapter = imagesAdapter(it)
+            view.recyclerStore.adapter = imagesAdapter(it)
             //view.recyclerId.layoutManager = LinearLayoutManager(activity)
-            view.recyclerId.layoutManager = GridLayoutManager(activity, 3)
+            view.recyclerStore.layoutManager = GridLayoutManager(activity, 3)
 
 
             //recyclerId.setLayoutManager(GridLayoutManager(activity, 3))

@@ -6,9 +6,9 @@ android:layout_height="match_parent"
 tools:context=".fragments.StoreFragment"
 android:background="#FFF">
 
-<!-- TODO: Update blank fragment layout -->
+
 <TextView
-    android:id="@+id/textoHome"
+    android:id="@+id/textoStore"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Loja Online"
@@ -18,19 +18,13 @@ android:background="#FFF">
     android:textColor="#000"
     />
 
-<TextView
-    android:id="@+id/qql"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="20sp"
-    />
 
 
 <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recyclerId"
+    android:id="@+id/recyclerStore"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@+id/textoHome"
+    android:layout_below="@+id/textoStore"
     android:layout_alignParentStart="true"
 
     android:layout_alignParentEnd="true"

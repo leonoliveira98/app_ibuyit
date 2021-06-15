@@ -11,12 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.app_ibuyit.R
-import com.example.app_ibuyit.imagesAdapter
-import com.example.app_ibuyit.produto
+import com.example.app_ibuyit.imagesPromoAdapter
+import com.example.app_ibuyit.produtoPromo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.fragment_store.view.*
 
 
 class HomeFragment : Fragment() {
@@ -33,12 +34,47 @@ class HomeFragment : Fragment() {
         var email = user?.email.toString()
 
 
+        buscarProdutos {
+
+            view.recyclerPromo.adapter = imagesPromoAdapter(it)
+            //view.recyclerId.layoutManager = LinearLayoutManager(activity)
+            view.recyclerPromo.layoutManager = GridLayoutManager(activity, 3)
+
+
+            //recyclerId.setLayoutManager(GridLayoutManager(activity, 3))
+        }
+
 
 
         return view
     }
 
 
+    private fun executarOutraActivity(outraActivity: Class<*>, chave: String, argsParaOutraActivity: ArrayList<String>) {
+        val x = Intent(activity, outraActivity)
+        x.putStringArrayListExtra(chave, argsParaOutraActivity)
+        startActivity(x)
+    }
 
+    private fun buscarProdutos(myCallback: (ArrayList<produtoPromo>) -> Unit) {
+        val arrayProducts = ArrayList<produtoPromo>()
+
+        dbFirestore.collection("produtos")
+            .get()
+            .addOnCompleteListener {
+                if(it.isSuccessful) {
+                    for(document in it.result!!) {
+                        if (document.getString("promocao").toString() == "true") {
+                            val item = produtoPromo(
+                                document.data.getValue(("imagem")).toString(),
+                                document.data.getValue(("nome")).toString())
+
+                            arrayProducts.add(item)
+                        }
+                    }
+                    myCallback(arrayProducts)
+                }
+            }
+    }
 
 }
