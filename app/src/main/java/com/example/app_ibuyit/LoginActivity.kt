@@ -3,10 +3,12 @@ package com.example.app_ibuyit
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_login.*
+import org.w3c.dom.Text
 
 class LoginActivity : AppCompatActivity() {
 
@@ -41,6 +43,14 @@ class LoginActivity : AppCompatActivity() {
             val password = password.text.toString()
 
             signIn(email,password)
+        }
+
+        btn_registo.setOnClickListener{
+
+            var email = user?.email
+            bruh = email.toString()
+            executarOutraActivity(RegistoActivity::class.java, "Valores", arrayListOf(bruh))
+
         }
 
         updateUser()

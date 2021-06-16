@@ -1,3 +1,3 @@
 package com.example.app_ibuyit
 
-class produtoPromo  (val imagem: String, val nome: String)
+class produtoPromo  (val imagem: String, val nome: String, val precoPromo: String)

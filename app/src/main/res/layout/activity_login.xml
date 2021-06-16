@@ -70,6 +70,7 @@
 
 
         android:drawableLeft="@drawable/ic_lock" />
+
     <TextView
         android:id="@+id/erros"
         android:layout_width="wrap_content"
@@ -89,41 +90,19 @@
         android:background="@drawable/buttons"
         android:textSize="18dp"
         />
-    <!--
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Logout"
-            android:layout_below="@+id/login"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/buttons"
-            android:textSize="18dp"
-        android:textColor="#FFF"
-            />
 
-
-        <TextView
-            android:id="@+id/utilizadorAtual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/logout"
-            android:layout_centerHorizontal="true"
-            android:text="Utilizador atual:"/>-->
-    <Button
+    <TextView
         android:id="@+id/btn_registo"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/login"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/buttons2"
+        android:textAlignment="center"
         android:textSize="18dp"
-        android:text="Registar"
+        android:text="Não tem conta? Registe-se aqui."
+        android:textStyle="bold"
         android:layout_marginTop="10sp"
-
-
+        android:clickable="true"
         />
 
 
@@ -133,19 +112,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_registo"
         android:layout_centerHorizontal="true"
+        android:paddingTop="5dp"
         android:text="Esqueceu-se da password? Clique aqui."
         android:textSize="18dp"
         android:layout_marginTop="5dp"
         />
 
-    <TextView
-        android:id="@+id/texto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_forgot_password"
-        android:layout_centerHorizontal="true"
-        android:textColor="#FF0000"
-        android:textSize="14dp"
-        />
+
 </RelativeLayout>
 </ScrollView>

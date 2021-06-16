@@ -30,6 +30,8 @@ class PerfilFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
         val user = mAuth.currentUser
+        val uid = user?.uid // FUNFA
+
         var email = user?.email.toString() //Esta a dar
 
         // Definir a base de dados

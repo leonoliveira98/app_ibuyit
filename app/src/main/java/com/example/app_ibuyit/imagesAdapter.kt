@@ -1,5 +1,6 @@
 package com.example.app_ibuyit
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class imagesAdapter (private val exampleList: List<produto>) : RecyclerView.Adap
     class ExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imagem: ImageView = itemView.findViewById(R.id.imagem)
         var nome: TextView = itemView.findViewById(R.id.nomeProduto)
+        var preco: TextView = itemView.findViewById(R.id.preco)
 
 
     }
@@ -38,6 +40,16 @@ class imagesAdapter (private val exampleList: List<produto>) : RecyclerView.Adap
             .into(holder.imagem)
 
         holder.nome.text = currentItem.nome
+        if(currentItem.promocao == "true"){
+
+            holder.preco.text = currentItem.preco
+            holder.preco.setTextColor(Color.RED)
+
+        } else {
+            holder.preco.text = currentItem.preco
+            holder.preco.setTextColor(Color.BLACK)
+
+        }
 
     }
 

@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 class imagesPromoAdapter (private val exampleList: List<produtoPromo>) : RecyclerView.Adapter<imagesPromoAdapter.ExampleViewHolder>() {
 
@@ -26,6 +27,7 @@ class imagesPromoAdapter (private val exampleList: List<produtoPromo>) : Recycle
     class ExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imagem: ImageView = itemView.findViewById(R.id.imagem)
         var nome: TextView = itemView.findViewById(R.id.nomePromo)
+        var preco2 : TextView = itemView.findViewById(R.id.preco)
 
 
     }
@@ -38,6 +40,8 @@ class imagesPromoAdapter (private val exampleList: List<produtoPromo>) : Recycle
             .into(holder.imagem)
 
         holder.nome.text = currentItem.nome
+
+        holder.preco2.text = currentItem.precoPromo
 
     }
 

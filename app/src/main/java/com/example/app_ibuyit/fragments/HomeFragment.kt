@@ -6,10 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.app_ibuyit.LoginActivity
 import com.example.app_ibuyit.R
 import com.example.app_ibuyit.imagesPromoAdapter
 import com.example.app_ibuyit.produtoPromo
@@ -25,6 +28,7 @@ class HomeFragment : Fragment() {
     private val mAuth : FirebaseAuth = FirebaseAuth.getInstance()
     private val dbFirestore : FirebaseFirestore = FirebaseFirestore.getInstance()
 
+    lateinit var logout : ImageButton
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -44,7 +48,11 @@ class HomeFragment : Fragment() {
             //recyclerId.setLayoutManager(GridLayoutManager(activity, 3))
         }
 
-
+        logout = view.findViewById(R.id.btn_logout)
+        logout.setOnClickListener{
+            logout()
+            activity?.finish()
+        }
 
         return view
     }
@@ -67,7 +75,8 @@ class HomeFragment : Fragment() {
                         if (document.getString("promocao").toString() == "true") {
                             val item = produtoPromo(
                                 document.data.getValue(("imagem")).toString(),
-                                document.data.getValue(("nome")).toString())
+                                document.data.getValue(("nome")).toString(),
+                                document.data.getValue(("precoPromo")).toString())
 
                             arrayProducts.add(item)
                         }
@@ -75,6 +84,13 @@ class HomeFragment : Fragment() {
                     myCallback(arrayProducts)
                 }
             }
+    }
+
+    private fun logout(){
+        Toast.makeText(activity,"User Logout Successfull", Toast.LENGTH_LONG).show()
+        mAuth.signOut()
+        executarOutraActivity(LoginActivity::class.java, "Valores", arrayListOf())
+
     }
 
 }
