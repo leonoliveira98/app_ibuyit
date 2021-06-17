@@ -12,7 +12,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".LoginActivity"
 android:padding="25dp"
-android:background="#D3D3D3">
+android:background="#fff">
 
     <ImageButton
         android:id="@+id/btn_logout"

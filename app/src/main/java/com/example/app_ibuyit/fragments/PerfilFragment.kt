@@ -195,6 +195,7 @@ class PerfilFragment : Fragment() {
                         if (task3.isSuccessful) {
                             Toast.makeText(activity, "Password atualizada com sucesso", Toast.LENGTH_LONG)
                                 .show()
+                            //METER AQUI CENA PA MANDAR PA PAGINA DE LOGIN
                             Log.d("Profile", "password auth")
 
 
