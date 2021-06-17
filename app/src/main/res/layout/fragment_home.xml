@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.StoreFragment"
+    tools:context=".fragments.HomeFragment"
     android:background="#fff">
 
+<!--
     <ImageButton
         android:id="@+id/shopCart"
         android:layout_width="40dp"
@@ -19,7 +20,7 @@
         android:background="#fff"
         android:layout_toLeftOf="@id/btn_logout"
         android:tint="@android:color/black"
-        />
+        />-->
 
     <ImageButton
         android:id="@+id/btn_logout"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.StoreFragment"
+    tools:context=".fragments.ListasFragment"
     android:background="#dada">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,7 +14,7 @@
         android:text="Listas"
         android:textSize="30sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:textColor="#000"
         />
 

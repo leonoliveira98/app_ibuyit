@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -16,24 +17,27 @@ import com.example.app_ibuyit.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_carrinho.*
+import kotlinx.android.synthetic.main.fragment_carrinho.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.fragment_store.view.*
+import org.w3c.dom.Text
 
 
-class HomeFragment : Fragment() {
+class CarrinhoFragment : Fragment() {
 
     private val mAuth : FirebaseAuth = FirebaseAuth.getInstance()
     private val dbFirestore : FirebaseFirestore = FirebaseFirestore.getInstance()
 
     val uid = mAuth.uid.toString()
     private val fireStoreDoc = FirebaseFirestore.getInstance().collection(uid)
-
-    lateinit var logout : ImageButton
+    lateinit var btn_pagar : Button
+    lateinit var dinheiro: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        var view = inflater.inflate(R.layout.fragment_home, container, false)
+        var view = inflater.inflate(R.layout.fragment_carrinho, container, false)
 
         val user = mAuth.currentUser
 
@@ -43,19 +47,39 @@ class HomeFragment : Fragment() {
 
         buscarProdutos {
 
-            view.recyclerPromo.adapter = imagesPromoAdapter(it)
-            //view.recyclerId.layoutManager = LinearLayoutManager(activity)
-            view.recyclerPromo.layoutManager = GridLayoutManager(activity, 3)
+            view.recyclerCar.adapter = carrinhoAdapter(it)
+
+            view.recyclerCar.layoutManager = LinearLayoutManager(activity)
+            //view.recyclerCar.layoutManager = GridLayoutManager(activity, 3)
 
         }
 
-        //fazer logout
-        logout = view.findViewById(R.id.btn_logout)
-        logout.setOnClickListener{
-            logout()
-            activity?.finish()
+        btn_pagar = view.findViewById(R.id.btn_pagar)
+
+        // Apagar todos os documentos da collection
+        btn_pagar.setOnClickListener {
+
+            dbFirestore.collection(uid)
+                .get()
+                .addOnCompleteListener {
+                    if(it.isSuccessful) {
+                        for(document in it.result!!) {
+
+                            dbFirestore.collection(uid).document(document.data.getValue(("nome")).toString()).delete()
+                            executarOutraActivity(MainActivity::class.java, "Valores", arrayListOf("a"))
+
+                        }
+
+                    }
+                }
+
         }
 
+        dinheiro = view.findViewById(R.id.dinheiro)
+
+        dinheiro.setOnClickListener {
+
+        }
 
 
 
@@ -70,34 +94,35 @@ class HomeFragment : Fragment() {
         startActivity(x)
     }
 
-    private fun buscarProdutos(myCallback: (ArrayList<produtoPromo>) -> Unit) {
-        val arrayProducts = ArrayList<produtoPromo>()
+    private fun buscarProdutos(myCallback: (ArrayList<carrinho>) -> Unit) {
+        val arrayProducts = ArrayList<carrinho>()
 
-        dbFirestore.collection("produtos")
+        dbFirestore.collection(uid)
             .get()
             .addOnCompleteListener {
                 if(it.isSuccessful) {
                     for(document in it.result!!) {
-                        if (document.getString("promocao").toString() == "true") {
-                            val item = produtoPromo(
+
+                            val item = carrinho(
                                 document.data.getValue(("imagem")).toString(),
                                 document.data.getValue(("nome")).toString(),
-                                document.data.getValue(("precoPromo")).toString())
+                                document.data.getValue(("preco")).toString(),
+                                document.data.getValue(("quantidade")).toString()
+                            )
 
                             arrayProducts.add(item)
-                        }
+
                     }
                     myCallback(arrayProducts)
                 }
             }
     }
 
-    private fun logout(){
-        Toast.makeText(activity,"User Logout Successfull", Toast.LENGTH_LONG).show()
-        mAuth.signOut()
-        executarOutraActivity(LoginActivity::class.java, "Valores", arrayListOf())
 
-    }
+
+
+
+
 
 
 }

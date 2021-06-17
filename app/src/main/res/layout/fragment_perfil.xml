@@ -1,38 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PerfilFragment"
-    android:background="@color/colorPrimaryDark">
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textoPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Perfil"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:textColor="#FFF"
-        />
-    <Button
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".LoginActivity"
+android:padding="25dp"
+android:background="#D3D3D3">
+
+    <ImageButton
         android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textoPerfil"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50sp"
-        android:text="LOGOUT"
-        android:textSize="30sp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_exit"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
+        android:layout_marginRight="20dp"
+        android:tint="@android:color/black"
         />
+
+    <ImageView
+    android:id="@+id/logo"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    app:srcCompat="@drawable/splashscreen_logo"
+    android:layout_centerHorizontal="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="50sp"
+    />
+
+
     <TextView
-        android:id="@+id/show_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textoPerfil"
-        android:layout_centerHorizontal="true"
-        android:textSize="30sp"
-        />
+        android:id="@+id/textViewNome"
+        android:layout_width="331dp"
+        android:layout_height="47dp"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="30dp"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnEditarEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.481" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="331dp"
+        android:layout_height="47dp"
+        android:layout_below="@id/textViewNome"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnEditarEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome"
+        app:layout_constraintVertical_bias="0.481" />
+
+    <Button
+        android:id="@+id/btnEditarEmail"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/textViewEmail"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/buttons"
+        android:text="Editar Email"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btnEditarPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/btnEditarEmail"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/buttons"
+        android:text="Editar Password"
+        android:textSize="18dp" />
+
+
 </RelativeLayout>
+
+</ScrollView>

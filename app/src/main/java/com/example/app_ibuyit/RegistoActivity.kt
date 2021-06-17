@@ -35,12 +35,22 @@ class RegistoActivity : AppCompatActivity() {
             val nomeUser = nome.text.toString()
 
             //Registo auth
-            if(confPassword == passwordUser){
-                //Toast.makeText(this, "passes iguais", Toast.LENGTH_LONG).show()
+            if(emailUser != "" && passwordUser != "" && confPassword != "" && nomeUser != ""){
+                if(confPassword == passwordUser){
+                    if(passwordUser.length > 7){
+                        registo(emailUser, passwordUser, nomeUser)
 
-                registo(emailUser, passwordUser, nomeUser)
-                //Log.d("mariatchi","MATDADEA" +emailUser + passwordUser + nomeUser)
+                    } else {
+
+                        //erros.text = "Credenciais erradas."
+                        Toast.makeText(this, "Password tem de ter mais de 7 caracteres", Toast.LENGTH_LONG).show()
+
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show()
             }
+
 
         }
 
@@ -97,5 +107,6 @@ class RegistoActivity : AppCompatActivity() {
         x.putStringArrayListExtra(chave, argsParaOutraActivity)
         startActivity(x)
     }
+
 
 }
